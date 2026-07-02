@@ -1,4 +1,4 @@
-const base_url = "https://xpayapi.texva.id";
+const base_url = "https://hmcsapi.texva.id";
 
 export async function api_budget_list(token) {
     const url = base_url + '/api/budget';
@@ -18,7 +18,7 @@ export async function api_budget_list(token) {
 
 
 export async function api_budget_show(token, id_tipe) {
-    const url = 'https://xpayapi.texva.id/api/budget/' + id_tipe;
+    const url = 'https://hmcsapi.texva.id/api/budget/' + id_tipe;
     const response = await fetch(url, {
         method: 'GET',
         headers: {
@@ -36,7 +36,7 @@ export async function api_budget_show(token, id_tipe) {
 
 export async function api_budget_insert(token, data) {
     // Add Budget
-    const url = 'https://xpayapi.texva.id/api/budget';
+    const url = 'https://hmcsapi.texva.id/api/budget';
     const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -54,7 +54,7 @@ export async function api_budget_insert(token, data) {
 
 
 export async function api_budget_delete(token, id_tipe) {
-    const url = `https://xpayapi.texva.id/api/budget/${id_tipe}`;
+    const url = `https://hmcsapi.texva.id/api/budget/${id_tipe}`;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: {
@@ -71,7 +71,7 @@ export async function api_budget_delete(token, id_tipe) {
 
 export async function api_budget_update(token, id_tipe, data) {
     // Edit Expanse
-    const url = `https://xpayapi.texva.id/api/budget/${id_tipe}`;
+    const url = `https://hmcsapi.texva.id/api/budget/${id_tipe}`;
     const response = await fetch(url, {
         method: 'PUT',
         headers: {

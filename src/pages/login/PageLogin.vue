@@ -113,7 +113,7 @@ async function sumbitLogin() {
             throw new Error("Mohon isi semua inputan.");
         }
 
-        const url = 'https://xpayapi.texva.id/api/login';
+        const url = 'https://hmcsapi.texva.id/api/login';
         const data = {
             email: email.value,
             password: password.value
