@@ -1,6 +1,6 @@
 export async function pengeluaranHariIni(token) {
   const url =
-    "https://xpayapi.texva.id/api/dashboard/jumlah_pengeluaran_hari_ini";
+    "https://hmcsapi.texva.id/api/dashboard/jumlah_pengeluaran_hari_ini";
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -17,7 +17,7 @@ export async function pengeluaranHariIni(token) {
 
 export async function pengeluaranMingguIni(token) {
   const url =
-    "https://xpayapi.texva.id/api/dashboard/jumlah_pengeluaran_minggu_ini";
+    "https://hmcsapi.texva.id/api/dashboard/jumlah_pengeluaran_minggu_ini";
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -34,7 +34,7 @@ export async function pengeluaranMingguIni(token) {
 
 export async function pengeluaranBulanIni(token) {
   const url =
-    "https://xpayapi.texva.id/api/dashboard/jumlah_pengeluaran_bulan_ini";
+    "https://hmcsapi.texva.id/api/dashboard/jumlah_pengeluaran_bulan_ini";
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -51,7 +51,7 @@ export async function pengeluaranBulanIni(token) {
 
 export async function detailPengeluaranHariIni(token) {
   const url =
-    "https://xpayapi.texva.id/api/dashboard/detail_pengeluaran_hari_ini";
+    "https://hmcsapi.texva.id/api/dashboard/detail_pengeluaran_hari_ini";
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -68,7 +68,7 @@ export async function detailPengeluaranHariIni(token) {
 
 export async function detailPengeluaranMingguIni(token) {
   const url =
-    "https://xpayapi.texva.id/api/dashboard/detail_pengeluaran_minggu_ini";
+    "https://hmcsapi.texva.id/api/dashboard/detail_pengeluaran_minggu_ini";
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -85,7 +85,7 @@ export async function detailPengeluaranMingguIni(token) {
 
 export async function detailPengeluaranBulanIni(token) {
   const url =
-    "https://xpayapi.texva.id/api/dashboard/detail_pengeluaran_bulan_ini";
+    "https://hmcsapi.texva.id/api/dashboard/detail_pengeluaran_bulan_ini";
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -101,7 +101,7 @@ export async function detailPengeluaranBulanIni(token) {
 }
 
 export async function api_dashbaord_overview(token) {
-  const url = "https://xpayapi.texva.id/api/dashboard/overview";
+  const url = "https://hmcsapi.texva.id/api/dashboard/overview";
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -117,7 +117,7 @@ export async function api_dashbaord_overview(token) {
 }
 
 export async function api_dashbaord_expenses_list(token, minDate) {
-  const url = `https://xpayapi.texva.id/api/dashboard/expenses_list?min_date=${minDate}`;
+  const url = `https://hmcsapi.texva.id/api/dashboard/expenses_list?min_date=${minDate}`;
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -133,7 +133,7 @@ export async function api_dashbaord_expenses_list(token, minDate) {
 }
 
 export async function api_dashbaord_budget_distribution(token) {
-  const url = `https://xpayapi.texva.id/api/dashboard/budget_distribution`;
+  const url = `https://hmcsapi.texva.id/api/dashboard/budget_distribution`;
   const response = await fetch(url, {
     method: "GET",
     headers: {
