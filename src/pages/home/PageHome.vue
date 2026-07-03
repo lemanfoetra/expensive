@@ -235,6 +235,13 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">Daily Expenses</h4>
+                                    <select id="">
+                                        <option value="0">All Type Expenses</option>
+                                        <template :key="`budget-${budgetType.tipe_expense_id}`"
+                                            v-for="budgetType in budgetTypeList">
+                                            <option :value="budgetType.tipe_expense_id">{{ budgetType.tipe }}</option>
+                                        </template>
+                                    </select>
                                 </div>
                                 <div class="card-body">
                                     <div id="cal-heatmap"
@@ -630,11 +637,13 @@ import CalHeatmap from 'cal-heatmap';
 import Legend from 'cal-heatmap/plugins/Legend';
 import { formatTanggal, formatYYYYMMDD, timestampToYYYYMMDD, useScreen } from '@/hooks/helpers';
 import * as echarts from 'echarts';
+import { api_budget_list } from '@/hooks/api_budget';
 
 
 const store = useStore();
 const loadJumlahHariIni = ref(true);
 const jumlahPengeluaranHariIni = ref(0);
+const budgetTypeList = ref([]);
 
 const loadJumlahMingguIni = ref(true);
 const jumlahPengeluaranMingguIni = ref(0);
@@ -667,6 +676,7 @@ const overview = ref({
 
 watch(filter, async (newVal) => {
     if (newVal === 'overview') {
+        await loadBudgetTypeList();
         await loadOverview();
         await loadGrafikHeatmap();
         await loadBudgetDistributionChart();
@@ -686,6 +696,7 @@ onMounted(async () => {
     try {
         document.title = "Dashboard";
 
+        await loadBudgetTypeList();
         await loadOverview();
         await loadGrafikHeatmap();
         await loadBudgetDistributionChart();
@@ -976,6 +987,22 @@ async function loadBudgetDistributionChart() {
 }
 
 
+async function loadBudgetTypeList() {
+    try {
+        const token = store.getters.getToken;
+        const result = await api_budget_list(token);
+        if (!result.success) {
+            throw new Error(result.message);
+        }
+
+        budgetTypeList.value = result.data;
+        console.log(budgetTypeList.value);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
 function formatCurrency(nilai) {
     const formatter = new Intl.NumberFormat('id-ID');
     return formatter.format(nilai);
@@ -1029,5 +1056,9 @@ function getFirstDateByRange(range) {
 
 .table__nowrap {
     white-space: nowrap;
+}
+
+.card-header {
+    justify-content: space-between !important;
 }
 </style>
